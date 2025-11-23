@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>茨城県の観光地提案診断</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome（必要なら） -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ====================== -->
+  <!-- トップページ（完成） -->
+  <!-- ====================== -->
+  <div class="top-wrapper page" id="top-page">
+    <div class="container">
+      <h1>Ibaraki tourist destination proposals</h1>
+      <h1>茨城県の観光地提案</h1>
+      <p>
+        このウェブサイトはあなたの心理状態に基づき、茨城県の観光地を提案するものです。<br>
+        茨城県の魅力を高めることを目的としています。簡単に操作できるので、ぜひ試してください！
+      </p>
+      <div class="btn-wrapper">
+        <a href="#" id="start-btn" class="btn signup">診断スタート</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====================== -->
+  <!-- 質問ページ（完成） -->
+  <!-- ====================== -->
+  <div id="quiz-page" class="page hidden">
+    <div class="container quiz-container">
+      <h2 class="quiz-title">心理診断</h2>
+      <p class="quiz-subtitle">
+        各項目について、当てはまる度合いを 1〜5 で選んでください。
+      </p>
+
+      <div class="quiz-status">
+        <span id="quiz-progress-text">1 / 16 問</span>
+      </div>
+
+      <div class="question-box">
+        <p id="question-text">ここに質問文が入ります。</p>
+      </div>
+
+      <div class="choice-list">
+        <button class="choice-btn" data-score="1">1<br><span>まったく当てはまらない</span></button>
+        <button class="choice-btn" data-score="2">2<br><span>あまり当てはまらない</span></button>
+        <button class="choice-btn" data-score="3">3<br><span>どちらともいえない</span></button>
+        <button class="choice-btn" data-score="4">4<br><span>やや当てはまる</span></button>
+        <button class="choice-btn" data-score="5">5<br><span>とても当てはまる</span></button>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-bar-inner" id="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====================== -->
+  <!-- 結果ページ（完成） -->
+  <!-- ====================== -->
+  <div id="result-page" class="page hidden">
+    <div class="container result-container">
+      <h2 class="result-title">診断結果</h2>
+
+      <p class="result-lead" id="result-type-text">
+        あなたは〇〇性が高い傾向にあります。
+      </p>
+
+      <div class="result-trait-box">
+        <p id="result-trait-description">
+          ここに特性の説明が入ります。
+        </p>
+      </div>
+
+      <div class="result-spot-box">
+        <h3 class="result-spot-title">あなたにおすすめの観光地</h3>
+
+        <p class="result-spot-name" id="result-spot-name">〇〇〇〇（市・町）</p>
+
+        <p class="result-spot-reason" id="result-spot-reason">
+          ここにその観光地をおすすめする理由が入ります。
+        </p>
+
+        <!-- 画像枠 -->
+        <div class="result-image-wrapper">
+          <img id="result-image" src="" alt="おすすめ観光地の画像">
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button id="back-to-top-btn" class="btn result-btn">
+          トップに戻る
+        </button>
+      </div>
+    </div>
+  </div>
+
+ <!-- JavaScript 読み込み（順番が大事：data.js → app.js） -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

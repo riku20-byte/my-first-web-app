@@ -1,0 +1,440 @@
+/* ===== リセット ===== */
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
+
+  /* ページ全体に背景画像を適用 */
+  background-image: url(https://lh3.googleusercontent.com/d/1lWvfZHbgBR5cl65-XVcRWlyBgwA9l8eg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* スクロールしても固定 */
+}
+
+/* ===== 全ページ共通（切り替え用） ===== */
+.page.hidden {
+  display: none;
+}
+
+/* ===== トップページ ===== */
+.top-wrapper {
+  padding: 100px 0 100px 0;
+  color: white;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.0); /* 背景を透明に */
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.top-wrapper h1 {
+  font-size: 55px;
+  letter-spacing: 3px;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+.top-wrapper p {
+  opacity: 0.9;
+  margin: 20px auto 60px;
+  line-height: 1.8;
+  max-width: 800px;
+  font-size: 18px;
+}
+
+.btn-wrapper {
+  margin-top: 16px;
+}
+
+/* トップページのボタン（PC版は大きいまま） */
+.btn {
+  border-radius: 4px;
+  padding: 20px 46px;
+  color: white;
+  opacity: 0.9;
+  display: inline-block;
+  font-size: 40px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.signup {
+  background-color: #239b76;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* ===== トップページ：レスポンシブ ===== */
+@media (max-width: 768px) {
+  .top-wrapper {
+    padding: 70px 0 50px 0;
+  }
+
+  .top-wrapper h1 {
+    font-size: 32px;
+  }
+
+  .top-wrapper p {
+    font-size: 16px;
+    margin: 16px auto 40px;
+  }
+
+  .btn {
+    font-size: 26px;
+    padding: 14px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-wrapper {
+    padding: 60px 0 40px 0;
+  }
+
+  .top-wrapper h1 {
+    font-size: 24px;
+  }
+
+  .top-wrapper p {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 22px;
+    padding: 12px 26px;
+  }
+}
+
+
+/* =========================== */
+/* ===== 質問ページ ===== */
+/* =========================== */
+
+#quiz-page {
+  padding: 60px 0 80px 0;
+  color: #222;
+}
+
+.quiz-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 40px 30px 50px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.quiz-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.quiz-subtitle {
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.quiz-status {
+  text-align: right;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.question-box {
+  margin-bottom: 24px;
+  padding: 18px 16px;
+  border-radius: 10px;
+  background: #f7f7f7;
+}
+
+#question-text {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* 選択肢ボタン（5件法） */
+.choice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.choice-btn {
+  flex: 1 1 120px;
+  max-width: 150px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 8px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+}
+
+.choice-btn span {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  margin-top: 4px;
+  color: #555;
+}
+
+.choice-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background-color: #e8faf3;
+}
+
+/* 選択済みスタイル（JSで付ける） */
+.choice-btn.selected {
+  background-color: #239b76;
+  color: #fff;
+}
+
+/* 進捗バー */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  width: 0%;
+  height: 100%;
+  background: #239b76;
+  transition: width 0.2s ease;
+}
+
+/* ===== 質問ページ：レスポンシブ ===== */
+@media (max-width: 768px) {
+  #quiz-page {
+    padding: 40px 0 50px 0;
+  }
+
+  .quiz-container {
+    padding: 24px 18px 32px;
+  }
+
+  .quiz-title {
+    font-size: 22px;
+  }
+
+  #question-text {
+    font-size: 16px;
+  }
+
+  .choice-btn {
+    flex: 1 1 45%;
+    max-width: none;
+    font-size: 18px;
+    padding: 10px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-container {
+    padding: 20px 14px 28px;
+  }
+
+  .quiz-title {
+    font-size: 20px;
+  }
+
+  #question-text {
+    font-size: 15px;
+  }
+
+  .choice-btn {
+    flex: 1 1 100%;
+    font-size: 18px;
+  }
+
+  .choice-btn span {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================== */
+/* ===== 結果ページ ===== */
+/* =========================== */
+
+#result-page {
+  padding: 60px 0 80px 0;
+  color: #222;
+}
+
+.result-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 40px 30px 50px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.result-title {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.result-lead {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.result-trait-box {
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 18px 16px;
+  margin-bottom: 24px;
+}
+
+#result-trait-description {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.result-spot-box {
+  margin-top: 10px;
+  padding: 20px 16px 24px;
+  border-radius: 10px;
+  background: #eaf7ff;
+  text-align: left;
+}
+
+.result-spot-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.result-spot-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.result-spot-reason {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* 画像エリア */
+.result-image-wrapper {
+  margin-top: 16px;
+  text-align: center;
+}
+
+#result-image {
+  max-width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* 戻るボタン */
+.result-actions {
+  margin-top: 30px;
+}
+
+.result-btn {
+  font-size: 20px;
+  padding: 10px 28px;
+  color: black
+}
+
+/* ===== 結果ページ：レスポンシブ ===== */
+@media (max-width: 768px) {
+  #result-page {
+    padding: 40px 0 50px 0;
+  }
+
+  .result-container {
+    padding: 28px 18px 36px;
+  }
+
+  .result-title {
+    font-size: 24px;
+  }
+
+  .result-lead {
+    font-size: 16px;
+  }
+
+  #result-trait-description {
+    font-size: 15px;
+  }
+
+  .result-spot-box {
+    padding: 18px 14px 22px;
+  }
+
+  .result-spot-name {
+    font-size: 18px;
+  }
+
+  #result-image {
+    height: 200px;
+  }
+
+  .result-btn {
+    font-size: 18px;
+    padding: 10px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .result-container {
+    padding: 22px 14px 30px;
+  }
+
+  .result-title {
+    font-size: 22px;
+  }
+
+  .result-lead {
+    font-size: 15px;
+  }
+
+  #result-trait-description {
+    font-size: 14px;
+  }
+
+  .result-spot-name {
+    font-size: 17px;
+  }
+
+  .result-spot-reason {
+    font-size: 14px;
+  }
+
+  #result-image {
+    height: 180px;
+  }
+
+  .result-btn {
+    font-size: 17px;
+    padding: 9px 22px;
+  }
+}
+
